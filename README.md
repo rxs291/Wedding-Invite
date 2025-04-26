@@ -35,19 +35,19 @@ npm install
 npm start
 ```
  
-##Technologies Used
+## Technologies Used
 - React
 - JavaScript
 - HTML5 & CSS3
 
 <!-- Technologies: What you used to build the project -->
-Future Improvements
+## Future Improvements
 - Add Google Maps integration for venue location
 - Add RSVP confirmation emails
 - Enhance visual design and animations
 
 <!-- Future Improvements: Optional! Good habit to show future plans -->
-License
+## License
 This project is open source and available under the MIT License.
 
 <!-- License: Optional but professional. You can add a LICENSE file later if you want -->
