@@ -96,7 +96,7 @@ body, html {
   background-color: #8c5d00;
 }
 
-//////////////////////Carousel Compoment/////
+/* //////////////////////Carousel Compoment///// */
 
 .carousel {
   position: relative;
@@ -147,7 +147,7 @@ button.prev { left: 0; }
 button.next { right: 0; }
 
 
-////////////////ThankYou Compoment////////
+/* ////////////////ThankYou Compoment//////// */
 
 .thank-you-background {
   background-image: url('./assets/backgroundPhoto.jpg'); /* Optional: can use a background */
@@ -175,4 +175,18 @@ button.next { right: 0; }
 
 .thank-you-card p {
   font-size: 1.2rem;
+}
+
+/* ////////////////playground---specifcially for the shake animation */
+
+.shake {
+  animation: shake 0.5s;
+}
+
+@keyframes shake {
+  0% { transform: translateX(0); }
+  25% { transform: translateX(-5px); }
+  50% { transform: translateX(5px); }
+  75% { transform: translateX(-5px); }
+  100% { transform: translateX(0); }
 }

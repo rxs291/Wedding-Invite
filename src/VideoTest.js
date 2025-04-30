@@ -17,6 +17,7 @@ function DomRefPlayground() {
   };
 
   const logBoxSize = () => {
+    console.log("Clicked!");
     const rect = boxRef.current.getBoundingClientRect();
     alert(`Box width: ${rect.width}px, Top position: ${rect.top}px`);
   };
@@ -56,7 +57,7 @@ function DomRefPlayground() {
         <button onClick={scrollToSection}>Scroll to Section</button>
       </div>
 
-      <div style={{ height: "400px" }} /> {/* Just space */}
+      <div style={{ height: "2000px" }} /> {/* Just space */}
 
       <div
         ref={sectionRef}
@@ -75,8 +76,12 @@ function DomRefPlayground() {
         >
           Ref Box
         </div>
+        <div>
         <button onClick={logBoxSize}>Log Box Size</button>
+        </div>
+        <div>
         <button onClick={shakeBox}>Shake the Box</button>
+        </div>
       </div>
 
       {/* Audio Example */}
