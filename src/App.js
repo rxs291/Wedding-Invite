@@ -39,6 +39,7 @@ useEffect(() => {
 
   return (
     <>
+    
       {/* Background Video */}
       <video
         ref={videoRef}
@@ -94,7 +95,7 @@ useEffect(() => {
           </form>
 
           <p className="footer-msg">We can't wait to celebrate with you!</p>
-          <PhotoCarousel />
+          {/* <PhotoCarousel /> -----also currently not fitted for mobile atm */}
         </div>
       </div>
     </>
