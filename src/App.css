@@ -3,32 +3,31 @@
 body, html {
   margin: 0;
   padding: 0;
-  font-family: 'Georgia', serif;
+  font-family: 'Georg', serif;
 }
 
+/* 🎥 Video Background */
 #bg-video {
   position: fixed;
   top: 0;
   left: 0;
-  min-width: 100%;
-  min-height: 100%;
+  width: 100vw;
+  height: 100vh;
   object-fit: cover;
-  z-index: -1;
+  z-index: -1; /* Always behind all content */
 }
 
+/* 🌫️ Container for overlay + invite card */
 .invite-background {
-  background-image: url('./assets/backgroundPhoto.jpg');
-  background-size: contain;
-  background-position: center;
-  transition: background-image 0.5s ease-in-out;
+  position: relative;
   min-height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  position: relative;
   z-index: 1;
 }
 
+/* 🔳 Optional blur overlay on top of video */
 .overlay {
   position: absolute;
   background-color: rgba(255, 255, 255, 0.6);
@@ -40,6 +39,7 @@ body, html {
   z-index: 0;
 }
 
+/* 💌 Invite Card — starts invisible */
 .invite-card {
   position: relative;
   background-color: rgba(255, 255, 255, 0.85);
@@ -48,19 +48,34 @@ body, html {
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
   max-width: 500px;
   width: 95%;
-  z-index: 1;
   text-align: center;
+  z-index: 1;
+  
+  /* Animation start state */
+  opacity: 0;
+  filter: blur(12px);
+  transform: scale(0.95);
+  transition: opacity 1.5s ease, filter 1.5s ease, transform 1.5s ease;
 }
 
+/* 👁️ When the card should appear */
+.invite-card.show {
+  opacity: 1;
+  filter: blur(0);
+  transform: scale(1);
+}
+
+
+/* 🎨 Typography */
 .title {
   font-size: 1.6rem;
   color: #7c4d00;
 }
 
 .subtitle, .details, .footer-msg {
+  font-size: .8rem;
   color: #5e3b00;
-  margin-bottom: 1rem;
-  font-size: 0.85rem;
+  margin-bottom: .5rem;
 }
 
 .names {
@@ -69,6 +84,7 @@ body, html {
   margin-bottom: 1rem;
 }
 
+/* 📝 RSVP Form */
 .rsvp-form {
   display: flex;
   flex-direction: column;
@@ -102,99 +118,6 @@ body, html {
   background-color: #8c5d00;
 }
 
-/* ================= CAROUSEL ================= */
-
-.carousel {
-  position: relative;
-  width: 300px;
-  margin: 50px auto;
-  overflow: hidden;
-}
-
-.carousel-images {
-  position: relative;
-  width: 300px;
-  height: 400px;
-  margin: 0 auto;
-}
-
-.carousel-images img {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 300px;
-  height: 100%;
-  object-fit: cover;
-  opacity: 0;
-  transition: opacity 1s ease-in-out;
-  border-radius: 10px;
-  pointer-events: none;
-}
-
-.carousel-images img.active {
-  opacity: 1;
-  pointer-events: auto;
-}
-
-button.prev, button.next {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background: rgba(255, 255, 255, 0.7);
-  border: none;
-  font-size: 2rem;
-  cursor: pointer;
-  padding: 0 10px;
-  z-index: 2;
-}
-
-button.prev { left: 0; }
-button.next { right: 0; }
-
-/* ================= THANK YOU ================= */
-
-.thank-you-background {
-  background-image: url('./assets/backgroundPhoto.jpg');
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-}
-
-.thank-you-card {
-  background: rgba(255, 255, 255, 0.8);
-  padding: 40px;
-  border-radius: 20px;
-  box-shadow: 0 8px 16px rgba(0,0,0,0.3);
-}
-
-.thank-you-card h1 {
-  margin-bottom: 20px;
-  font-size: 2.5rem;
-}
-
-.thank-you-card p {
-  font-size: 1.2rem;
-}
-
-/* ================= SHAKE ANIMATION ================= */
-
-.shake {
-  animation: shake 0.5s;
-}
-
-@keyframes shake {
-  0% { transform: translateX(0); }
-  25% { transform: translateX(-5px); }
-  50% { transform: translateX(5px); }
-  75% { transform: translateX(-5px); }
-  100% { transform: translateX(0); }
-}
-
 /* ================= RESPONSIVE MEDIA QUERIES ================= */
 
 @media (min-width: 321px) and (max-width: 360px) {
@@ -220,7 +143,6 @@ button.next { right: 0; }
 @media (min-width: 415px) and (max-width: 768px) {
   .invite-background {
     padding: 1rem;
-    background-size: cover;
   }
   .invite-card {
     width: 85%;
@@ -231,6 +153,6 @@ button.next { right: 0; }
   .subtitle, .details, .footer-msg { font-size: 1rem; }
   .rsvp-form input, .rsvp-form button {
     font-size: 1rem;
-    padding: 0.7rem;
+    padding: 07rem;
   }
 }
